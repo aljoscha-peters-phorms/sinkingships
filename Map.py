@@ -9,3 +9,6 @@ default_val = 0
 for i in char_range("a", "j"):
 	for j in range(1, 11):
 		map_dict[str(i)+str(j)] = default_val
+
+for x, y in map_dict.items():
+	print(x, y) 
