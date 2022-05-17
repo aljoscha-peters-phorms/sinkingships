@@ -1,3 +1,5 @@
+import globale
+
 def char_range(i1, i2):
     for i in range(ord(i1), ord(i2)+1):
         yield chr(i)
@@ -10,4 +12,4 @@ def mapDictInit():
 		for j in range(1, 11):
 			map_dict[str(i)+str(j)] = default_val
 
-def schiffeSetzen():
+def schiffeSetzen(ship):
