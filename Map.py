@@ -57,9 +57,3 @@ def schiffeSetzen(schiffTyp, start_feld, orient):
 			return True
 	else:
 		return False
-
-mapDictInit()
-schiffeSetzen("Carrier", "a2", "h")
-
-for x, y in map_dict.items():
-	print(x, y)
