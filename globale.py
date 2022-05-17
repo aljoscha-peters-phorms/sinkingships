@@ -10,6 +10,6 @@ schiff_Codierung = {
 	"Fregatte" : 1,
 	"Submarine" : 2,
 	"Destroyer" : 3,
-	"Battleship" : 4
+	"Battleship" : 4,
 	"Carrier" : 5
 } 
