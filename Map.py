@@ -42,6 +42,14 @@ def schiffeSetzen(schiffTyp, start_feld, orient):
 
 	if orient == "v":
 		if besetzt_v(start_feld, globale.schiff_Typen[schiffTyp]):
-			pass
+			sp = start_feld[0]
+			zl = int(start_feld[1])
+			for i in range(0, globale.schiff_Typen[schiffTyp]):
+				map_dict[sp+str(zl + i)] = globale.schiff_Codierung[schiffTyp]
 
-print(inMap("j1", 5, "h"))
+	if orient == "h":
+		if besetzt_h(start_feld, globale.schiff_Typen[schiffTyp]):
+			sp = start_feld[0]
+			zl = start_feld[1]
+			for i in range(0, globale.schiff_Typen[schiffTyp]):
+				map_dict[chr(ord(sp)+i) + zl] = globale.schiff_Codierung[schiffTyp]
