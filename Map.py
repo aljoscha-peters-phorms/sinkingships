@@ -41,15 +41,25 @@ def schiffeSetzen(schiffTyp, start_feld, orient):
 		raise Exception("Außerhalb der Karte, nochmal versuchen.")
 
 	if orient == "v":
-		if besetzt_v(start_feld, globale.schiff_Typen[schiffTyp]):
+		if besetzt_v(start_feld, globale.schiff_Typen[schiffTyp]) == False:
 			sp = start_feld[0]
 			zl = int(start_feld[1])
 			for i in range(0, globale.schiff_Typen[schiffTyp]):
 				map_dict[sp+str(zl + i)] = globale.schiff_Codierung[schiffTyp]
+			return True
 
 	if orient == "h":
-		if besetzt_h(start_feld, globale.schiff_Typen[schiffTyp]):
+		if besetzt_h(start_feld, globale.schiff_Typen[schiffTyp]) == False:
 			sp = start_feld[0]
 			zl = start_feld[1]
 			for i in range(0, globale.schiff_Typen[schiffTyp]):
 				map_dict[chr(ord(sp)+i) + zl] = globale.schiff_Codierung[schiffTyp]
+			return True
+	else:
+		return False
+
+mapDictInit()
+schiffeSetzen("Carrier", "a2", "h")
+
+for x, y in map_dict.items():
+	print(x, y)
