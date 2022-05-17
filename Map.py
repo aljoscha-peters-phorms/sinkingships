@@ -13,10 +13,15 @@ def mapDictInit():
 		for j in range(1, 11):
 			map_dict[str(i)+str(j)] = default_val
 
+def inMap(start_feld, laenge, orient):
+	if orient == "v":
+		return int(start_feld[1]) + laenge <= 10
+	
+	return ord(start_feld[0]) + laenge <= ord("j")
+
 def besetzt_v(start_feld, laenge):
 	sp = start_feld[0]
 	zl = int(start_feld[1])
-
 	for i in range(0, laenge):
 		if map_dict[sp+str(zl + i)] != 0:
 			return True
@@ -32,8 +37,11 @@ def besetzt_h(start_feld, laenge):
 	return False
 
 def schiffeSetzen(schiffTyp, start_feld, orient):
-	pass
+	if inMap(start_feld, globale.schiff_Typen[schiffTyp], orient) == False:
+		raise Exception("Außerhalb der Karte, nochmal versuchen.")
 
-mapDictInit()
-map_dict["c3"] = 1
-print(besetzt_h("a3", 4))
+	if orient == "v":
+		if besetzt_v(start_feld, globale.schiff_Typen[schiffTyp]):
+			pass
+
+print(inMap("j1", 5, "h"))
