@@ -1,3 +1,5 @@
+"""
+
 import copy
 
 schiff_Typen = {
@@ -8,12 +10,19 @@ schiff_Typen = {
 	"Carrier" : 5
 }
 
+schiff_Codierung = {
+	"Fregatte" : 1,
+	"Submarine" : 2,
+	"Destroyer" : 3,
+	"Battleship" : 4
+	"Carrier" : 5
+} 
+
 class Ships():
 
 	def __init__(self, schiffTypen : schiff_Typen):
 		self.id = 0
 		self.name = ""
-		self.versenkt = False
 		self.stellen = []
 		for i in range(schiff_Typen[schiffTypen]):
 			self.stellen.append(False)
@@ -24,12 +33,6 @@ class Ships():
 
 	def getID(self):
 		return self.id
-
-	def setVersenkt(self, newVersenkt):
-		self.versenkt = True
-
-	def isVersenkt(self):
-		return self.versenkt
 
 	def setStellen(self, newStellen):
 		self.stellen = copy.copy(newstellen)
@@ -48,3 +51,4 @@ class Ships():
 
 	def getZeichen(self):
 		return self.zeichen
+"""
