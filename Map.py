@@ -38,7 +38,7 @@ def besetzt_h(start_feld, laenge):
 
 def schiffeSetzen(schiffTyp, start_feld, orient):
 	if inMap(start_feld, globale.schiff_Typen[schiffTyp], orient) == False:
-		raise Exception("Außerhalb der Karte, nochmal versuchen.")
+		return False
 
 	if orient == "v":
 		if besetzt_v(start_feld, globale.schiff_Typen[schiffTyp]) == False:
