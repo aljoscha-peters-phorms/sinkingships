@@ -25,4 +25,3 @@ def main(stdscr):
     stdscr.getch()
 
 wrapper(main)
-
