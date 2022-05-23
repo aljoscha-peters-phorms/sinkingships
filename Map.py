@@ -55,5 +55,5 @@ def schiffeSetzen(schiffTyp, start_feld, orient):
 			for i in range(0, globale.schiff_Typen[schiffTyp]):
 				map_dict[chr(ord(sp)+i) + zl] = globale.schiff_Codierung[schiffTyp]
 			return True
-	else:
-		return False
+	
+	return False
