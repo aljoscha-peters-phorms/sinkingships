@@ -57,3 +57,9 @@ def schiffeSetzen(schiffTyp, start_feld, orient):
 			return True
 	
 	return False
+
+
+schiffeSetzen("Fregatte", "a3", "v")
+schiffeSetzen("Destroyer", "g2", "v")
+schiffeSetzen("Carrier", "b8", "h")
+print("Neuer Dict:")
