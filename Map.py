@@ -58,8 +58,21 @@ def schiffeSetzen(schiffTyp, start_feld, orient):
 	
 	return False
 
+def printMap():
+	keys = map_dict.keys()
+	i = 0
+	for i in keys:
+		print(map_dict[i], end=" ")
+		if i[0] == "j":
+			print("\n")
 
-schiffeSetzen("Fregatte", "a3", "v")
+mapDictInit()
+
+
+printMap()
+
+schiffeSetzen("Fregatte", "a3", "h")
 schiffeSetzen("Destroyer", "g2", "v")
 schiffeSetzen("Carrier", "b8", "h")
-print("Neuer Dict:")
+
+printMap()
