@@ -59,10 +59,13 @@ def schiffeSetzen(schiffTyp, start_feld, orient):
 	return False
 
 def printMap():
-	for key, value in map_dict.items():
-		print(value, end=" ")
-		if ord(key[1]) % ord("j"):
-			print("\n")
+	
+	for i in range(1,11):
+		for j in range(ord("a"), ord("j") + 1):
+			print(map_dict[chr(j)+str(i)], end = " ")	
+
+
+print(ord("a"), ord("j"))
 
 mapDictInit()
 
