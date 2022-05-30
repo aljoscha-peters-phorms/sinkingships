@@ -25,6 +25,7 @@ def main(stdscr):
         time.sleep(0.1)
     stdscr.getch()
 
+<<<<<<< HEAD
 wrapper(main)
 """
 
@@ -87,3 +88,6 @@ while n == -50:
 
 
 
+=======
+wrapper(main)
+>>>>>>> 3848c836f379d180c07da9a0dfc2e83eb1ba1d4e
