@@ -25,7 +25,6 @@ def main(stdscr):
         time.sleep(0.1)
     stdscr.getch()
 
-<<<<<<< HEAD
 wrapper(main)
 """
 
@@ -62,24 +61,24 @@ myString14="         /##############################################%&&&&&&#####
 myString15="          %########################################################.           "
 
 myString16="          *######################################################.             "
-while n == -50:
-	print(myString1[:n])
-	print(myString2[:n])
-	print(myString3[:n])
-	print(myString4[:n])
-	print(myString5[:n])
-	print(myString6[:n])
-	print(myString7[:n])
-	print(myString8[:n])
-	print(myString9[:n])
-	print(myString10[:n])
-	print(myString11[:n])
-	print(myString12[:n])
-	print(myString13[:n])
-	print(myString14[:n])
-	print(myString15[:n])
-	print(myString16[:n])
-	n = n - 1
+
+print(myString1[:n])
+print(myString2[:n])
+print(myString3[:n])
+print(myString4[:n])
+print(myString5[:n])
+print(myString6[:n])
+print(myString7[:n])
+print(myString8[:n])
+print(myString9[:n])
+print(myString10[:n])
+print(myString11[:n])
+print(myString12[:n])
+print(myString13[:n])
+print(myString14[:n])
+print(myString15[:n])
+print(myString16[:n])
+	
 
 
 
@@ -88,6 +87,3 @@ while n == -50:
 
 
 
-=======
-wrapper(main)
->>>>>>> 3848c836f379d180c07da9a0dfc2e83eb1ba1d4e
