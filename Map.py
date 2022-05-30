@@ -1,10 +1,13 @@
 import globale
+import os
 
 
 def char_range(i1, i2):
     for i in range(ord(i1), ord(i2)+1):
         yield chr(i)
 
+def clearScreen():
+	os.system("cls") if os.name == "nt" else os.system("clear")
 
 class Map():
 	
