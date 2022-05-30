@@ -66,7 +66,6 @@ class Map():
 	def changeStellen(self, stelle, zeichen):
 		self.map_dict[stelle] = zeichen
 
-
 	def printMap(self):
 		
 		print("\tA B C D E F G H I J\n\n")
@@ -79,7 +78,14 @@ class Map():
 				if j == ord("j"):
 					print("\n")
 
-s1 = Map()
+class ownMap(Map):
+	pass
+
+class enemyMap(Map):
+	pass
+
+"""
+s1 = ownMap()
 s1.mapDictInit()
 
 
@@ -94,3 +100,4 @@ s1.printMap()
 s1.changeStellen("a1", "+")
 s1.changeStellen("j10", "-")
 s1.printMap()
+"""
