@@ -44,11 +44,12 @@ class Player():
                 placementOrient = input(f'Wie willst du {i} (Länge: {j}) setzen: (Antwortformat (v: vertikal, h: horizontal): bsp. v)')
             
                 if self.ownMap.schiffeSetzen(i, placementCoord, placementOrient):
-                    print("Correct Ship Placement")
+                    print("Schiff richtig gesetzt")
                     if i == "Carrier":
                         done = True
                 else:
-                    print("Incorrect Ship Placement")
+                    print("Schiff falsch gesetzt")
+                    break
                     sleep(3)
                     clearScreen()
                     self.setOwnMap()
