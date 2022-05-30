@@ -5,16 +5,9 @@ import globale
 class Player():
    
     def __init__(self):
-        self.score = 0
         self.name = ""
         self.ownMap = ownMap()
         self.enemyMap = enemyMap()
-    
-    def setScore(self, score):
-        self.score = score
-    
-    def getScore(self):
-        return self.score
     
     def setName(self, name):
         self.name = name
@@ -54,9 +47,28 @@ class Player():
                     clearScreen()
                     self.setOwnMap()
                     done = False
+    
+    def shoot(self):
+        self.enemyMap.printMap()
+        shootPos = input("Auf welches Feld willst du schießen: (Antwortformat(a1,b1,c1...h10,i10,j10):bsp: g5)")
+        if self.enemyMap[shootPos] > 0:
+            z = "+"
+            print("Getroffen!")
+        else:
+            z = "-"
+            print("Nicht getroffen.")
+        
+        self.enemyMap.changeStellen(shootPos, z)
 
-p1 = Player()
+class Player1(Player):
+    pass
+
+class Player2(Player):
+    pass
+
+p1 = Player1()
 p1.setOwnMap()
+p1.setEnemyMap()
 
 p1.askCheckPlaceShips()
 print(p1.ownMap.printMap())
