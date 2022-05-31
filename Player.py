@@ -18,14 +18,8 @@ class Player():
     def setOwnMap(self):
         self.ownMap.mapDictInit()
     
-    def getOwnMap(self):
-        self.ownMap.printMap()
-    
     def setEnemyMap(self):
         self.enemyMap.mapDictInit()
-    
-    def getEnemyMap(self):
-        self.enemyMap.printMap()
     
     def askCheckPlaceShips(self):
         done = False
@@ -50,8 +44,9 @@ class Player():
     
     def shoot(self, player):
         self.enemyMap.printMap()
+        print(type(self.enemyMap))
         shootPos = input("Auf welches Feld willst du schießen: (Antwortformat(a1,b1,c1...h10,i10,j10):bsp: g5)")
-        if self.enemyMap[shootPos] > 0:
+        if self.enemyMap.get(shootPos) > 0:
             z = "+"
             print("Getroffen!")
         else:
@@ -71,5 +66,10 @@ p1 = Player1()
 p1.setOwnMap()
 p1.setEnemyMap()
 
-p1.askCheckPlaceShips()
-print(p1.ownMap.printMap())
+p2 = Player2()
+p2.setOwnMap()
+p2.setEnemyMap()
+
+#p1.askCheckPlaceShips()
+p2.shoot(p1)
+p1.ownMap.printMap()
