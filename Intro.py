@@ -1,12 +1,7 @@
 import os
 import curses
 from curses import wrapper
-
-
-
 from time import sleep
-
-
 
 
 
@@ -68,21 +63,21 @@ wrapper(main)
 while n > 0:
 	clearScreen()	
 	print("\033[1;30;47m " + myString1[n:])
-	print(myString2[n:])
-	print(myString3[n:])
-	print(myString4[n:])
-	print(myString5[n:])
-	print(myString6[n:])
-	print(myString7[n:])
-	print(myString8[n:])
-	print(myString9[n:])
-	print(myString10[n:])
-	print(myString11[n:])
-	print("\033[1;37;44m " + myString12[n:])
-	print(myString13[n:])
-	print(myString14[n:])
-	print(myString15[n:])
-	print(myString16[n:])
+	print("\033[1;30;47m " +myString2[n:]+"\033[0;0m")
+	print("\033[1;30;47m " +myString3[n:]+"\033[0;0m")
+	print("\033[1;30;47m " +myString4[n:]+"\033[0;0m")
+	print("\033[1;30;47m " +myString5[n:]+"\033[0;0m")
+	print("\033[1;30;47m " +myString6[n:]+"\033[0;0m")
+	print("\033[1;30;47m " +myString7[n:]+"\033[0;0m")
+	print("\033[1;30;47m " +myString8[n:]+"\033[0;0m")
+	print("\033[1;30;47m " +myString9[n:]+"\033[0;0m")
+	print("\033[1;30;47m " +myString10[n:]+"\033[0;0m")
+	print("\033[1;30;47m " +myString11[n:]+"\033[0;0m")
+	print("\033[1;37;44m " + myString12[n:]+"\033[0;0m")
+	print("\033[1;37;44m " +myString13[n:]+"\033[0;0m")
+	print("\033[1;37;44m " +myString14[n:]+"\033[0;0m")
+	print("\033[1;37;44m " +myString15[n:]+"\033[0;0m")
+	print("\033[1;37;44m " +myString16[n:]+"\033[0;0m")
 	sleep(0.1)
 
 
