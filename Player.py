@@ -1,4 +1,4 @@
-from Map import ownMap, enemyMap, Map, clearScreen
+from Map import Map, clearScreen
 from time import sleep
 import globale
 
@@ -6,8 +6,8 @@ class Player():
    
     def __init__(self):
         self.name = ""
-        self.ownMap = ownMap()
-        self.enemyMap = enemyMap()
+        self.ownMap = Map()
+        self.enemyMap = Map()
     
     def setName(self, name):
         self.name = name
@@ -42,11 +42,10 @@ class Player():
                     self.setOwnMap()
                     done = False
     
-    def shoot(self):
+    def shoot(self, player):
         self.enemyMap.printMap()
-        print(type(self.enemyMap))
         shootPos = input("Auf welches Feld willst du schießen: (Antwortformat(a1,b1,c1...h10,i10,j10):bsp: g5)")
-        if self.enemyMap[shootPos] > 0:
+        if int(self.enemyMap.map_dict[shootPos]) > 0:
             z = "+"
             print("Getroffen!")
         else:
@@ -54,7 +53,7 @@ class Player():
             print("Nicht getroffen.")
         
         self.enemyMap.changeStellen(shootPos, z)
-        #player.ownMap.appendStellen(shootPos, z)
+        player.ownMap.appendStellen(shootPos, z)
 
 class Player1(Player):
     pass
@@ -71,5 +70,5 @@ p2.setOwnMap()
 p2.setEnemyMap()
 
 #p1.askCheckPlaceShips()
-p2.shoot()
+p1.shoot(p2)
 p1.ownMap.printMap()
