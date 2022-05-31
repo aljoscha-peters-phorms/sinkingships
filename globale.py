@@ -12,4 +12,4 @@ schiff_Codierung = {
 	"Destroyer" : 3,
 	"Battleship" : 4,
 	"Carrier" : 5
-} 
+}

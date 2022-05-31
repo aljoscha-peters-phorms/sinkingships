@@ -48,7 +48,7 @@ class Player():
                     self.setOwnMap()
                     done = False
     
-    def shoot(self):
+    def shoot(self, player):
         self.enemyMap.printMap()
         shootPos = input("Auf welches Feld willst du schießen: (Antwortformat(a1,b1,c1...h10,i10,j10):bsp: g5)")
         if self.enemyMap[shootPos] > 0:
@@ -59,6 +59,7 @@ class Player():
             print("Nicht getroffen.")
         
         self.enemyMap.changeStellen(shootPos, z)
+        player.ownMap.appendStellen(shootPos, z)
 
 class Player1(Player):
     pass

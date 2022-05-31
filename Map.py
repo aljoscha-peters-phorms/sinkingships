@@ -69,6 +69,10 @@ class Map():
 	def changeStellen(self, stelle, zeichen):
 		self.map_dict[stelle] = zeichen
 
+	def appendStellen(self, stelle, zeichen):
+		self.map_dict[stelle] += zeichen
+
+
 	def printMap(self):
 		
 		print("\tA B C D E F G H I J\n\n")
