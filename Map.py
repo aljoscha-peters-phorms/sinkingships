@@ -15,7 +15,7 @@ class Map():
 		self.map_dict = {}
 
 	def mapDictInit(self):
-		default_val = 0
+		default_val = "0"
 
 		for i in char_range("a", "j"):
 			for j in range(1, 11):
@@ -70,7 +70,7 @@ class Map():
 		self.map_dict[stelle] = zeichen
 
 	def appendStellen(self, stelle, zeichen):
-		self.map_dict[stelle] += zeichen
+		self.map_dict[stelle] = str(self.map_dict[stelle]) + zeichen 
 
 	def printMap(self):
 		
@@ -90,8 +90,8 @@ class ownMap(Map):
 class enemyMap(Map):
 	pass
 
-"""
-s1 = ownMap()
+
+s1 = Map()
 s1.mapDictInit()
 
 
@@ -104,6 +104,5 @@ print("\n")
 s1.printMap()
 
 s1.changeStellen("a1", "+")
-s1.changeStellen("j10", "-")
+s1.appendStellen("j10", "-")
 s1.printMap()
-"""
