@@ -90,7 +90,7 @@ class ownMap(Map):
 class enemyMap(Map):
 	pass
 
-
+"""
 s1 = Map()
 s1.mapDictInit()
 
@@ -106,3 +106,4 @@ s1.printMap()
 s1.changeStellen("a1", "+")
 s1.appendStellen("j10", "-")
 s1.printMap()
+"""

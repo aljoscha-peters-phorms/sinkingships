@@ -60,7 +60,7 @@ class Player1(Player):
 
 class Player2(Player):
     pass
-
+"""
 p1 = Player()
 p1.setOwnMap()
 p1.setEnemyMap()
@@ -72,3 +72,4 @@ p2.setEnemyMap()
 #p1.askCheckPlaceShips()
 p1.shoot(p2)
 p1.ownMap.printMap()
+"""
