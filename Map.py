@@ -27,38 +27,29 @@ class Map():
 		
 		return ord(start_feld[0]) + laenge <= ord("j")
 
-	def besetzt_v(self, start_feld, laenge, schiffTyp):
-		orient = "v"
-		if self.inMap(start_feld, globale.schiff_Typen[schiffTyp], orient) == False:
-			return False		
+	def besetzt_v(self, start_feld, laenge):
 		sp = start_feld[0]
 		zl = int(start_feld[1])
 		for i in range(0, laenge):
-			try:
-				if self.map_dict[sp+str(zl + i)] != 0:
-					return True
-			except KeyError:
+			if self.map_dict[sp+str(zl + i)] != 0:
 				return True
 		return False
 
-	def besetzt_h(self, start_feld, laenge, schiffTyp):
-		orient = "h"
-		if self.inMap(start_feld, globale.schiff_Typen[schiffTyp], orient) == False:
-			return False
+	def besetzt_h(self, start_feld, laenge):
 		sp = start_feld[0]
 		zl = start_feld[1]
 
 		for i in range(0, laenge):
-			try:			
-				if self.map_dict[chr(ord(sp)+i) + zl] != 0:
-					return True
-			except KeyError:
+			if self.map_dict[chr(ord(sp)+i) + zl] != 0:
 				return True
 		return False
 
 	def schiffeSetzen(self, schiffTyp, start_feld, orient):
+		if self.inMap(start_feld, globale.schiff_Typen[schiffTyp], orient) == False:
+			return False
+
 		if orient == "v":
-			if self.besetzt_v(start_feld, globale.schiff_Typen[schiffTyp], schiffTyp) == False:
+			if self.besetzt_v(start_feld, globale.schiff_Typen[schiffTyp]) == False:
 				sp = start_feld[0]
 				zl = int(start_feld[1])
 				for i in range(0, globale.schiff_Typen[schiffTyp]):
@@ -66,7 +57,7 @@ class Map():
 				return True
 
 		if orient == "h":
-			if self.besetzt_h(start_feld, globale.schiff_Typen[schiffTyp], schiffTyp) == False:
+			if self.besetzt_h(start_feld, globale.schiff_Typen[schiffTyp]) == False:
 				sp = start_feld[0]
 				zl = start_feld[1]
 				for i in range(0, globale.schiff_Typen[schiffTyp]):

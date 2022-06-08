@@ -36,6 +36,7 @@ class Player():
                         done = True
                 else:
                     print("Schiff falsch gesetzt")
+                    break
                     sleep(3)
                     clearScreen()
                     self.setOwnMap()
