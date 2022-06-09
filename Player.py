@@ -6,8 +6,8 @@ class Player():
    
     def __init__(self):
         self.name = ""
-        self.ownMap = super(Map, self).__init__()
-        self.enemyMap = super(Map, self).__init__()
+        self.ownMap = Map()
+        self.enemyMap = Map()
     
     def setName(self, name):
         self.name = name
@@ -30,13 +30,13 @@ class Player():
                 placementCoord = input(f'Wo willst du {i} (Länge: {j}) setzen: (Antwortformat(a1,b1,c1...h10,i10,j10):bsp: a5)')
                 placementOrient = input(f'Wie willst du {i} (Länge: {j}) setzen: (Antwortformat (v: vertikal, h: horizontal): bsp. v)')
             
-                if not self.ownMap.schiffeSetzen(i, placementCoord, placementOrient):
-                    self.ownMap.printMap()
+                if self.ownMap.schiffeSetzen(i, placementCoord, placementOrient):
                     print("Schiff richtig gesetzt")
                     if i == "Carrier":
                         done = True
                 else:
                     print("Schiff falsch gesetzt")
+                    break
                     sleep(3)
                     clearScreen()
                     self.setOwnMap()
@@ -55,10 +55,21 @@ class Player():
         self.enemyMap.changeStellen(shootPos, z)
         player.ownMap.appendStellen(shootPos, z)
 
+class Player1(Player):
+    pass
 
+class Player2(Player):
+    pass
+"""
 p1 = Player()
-p1.ownMap.mapDictInit()
+p1.setOwnMap()
+p1.setEnemyMap()
 
-print(type(p1))
-p1.askCheckPlaceShips()
+p2 = Player()
+p2.setOwnMap()
+p2.setEnemyMap()
+
+#p1.askCheckPlaceShips()
+p1.shoot(p2)
 p1.ownMap.printMap()
+"""
