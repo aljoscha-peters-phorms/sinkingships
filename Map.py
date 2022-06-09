@@ -84,11 +84,6 @@ class Map():
 				if j == ord("j"):
 					print("\n")
 
-class ownMap(Map):
-	pass
-
-class enemyMap(Map):
-	pass
 
 """
 s1 = Map()
