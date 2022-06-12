@@ -49,9 +49,3 @@ while n == -50:
 	print(myString15[:n])
 	print(myString16[:n])
 	n = n - 1
-
-
-
-
-
-

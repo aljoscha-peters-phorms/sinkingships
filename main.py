@@ -1,9 +1,10 @@
 import Player
+import menu
 
 def gameLoop():
     done = False
    
     while not done:
-        print("Lol")
+         menu.main()
     
 gameLoop()
