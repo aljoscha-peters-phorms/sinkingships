@@ -5,7 +5,7 @@ def gameLoop():
     global done
     done = False
 
-    menu.menu()
+    #menu.menu()
     
     p1 = Player.Player()
     p1.setOwnMap()
@@ -15,8 +15,13 @@ def gameLoop():
     p2.setOwnMap()
     p2.setEnemyMap()
 
+    print("Player 1: Place your ships!")
     p1.askCheckPlaceShips()
+    p1.ownMap.printMap()
+
+    print("Player 2: Place your ships!")
     p2.askCheckPlaceShips()
+    p2.ownMap.printMap()
     
     while not done:
         while p1.shoot():

@@ -64,11 +64,6 @@ p1 = Player()
 p1.setOwnMap()
 p1.setEnemyMap()
 
-p2 = Player()
-p2.setOwnMap()
-p2.setEnemyMap()
-
 p1.askCheckPlaceShips()
-p1.shoot(p2)
 p1.ownMap.printMap()
 """

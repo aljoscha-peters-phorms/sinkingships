@@ -40,10 +40,10 @@ class Map():
 		for i in range(0, laenge):
 			try:
 				if self.map_dict[sp+str(zl + i)] != 0:# gives back true if any of the keys of the dict
-					return True							# on start field and lenght return 0
+					return False					# on start field and lenght return 0
 			except KeyError:# if the key asked doesn't exist or inMap() didnt catch error, also returns true
-				return True
-		return False#if all fields can be placed on returns false
+				return False
+		return True#if all fields can be placed on returns false
 
 	def besetzt_h(self, start_feld, laenge):
 		sp = start_feld[0]
@@ -52,17 +52,18 @@ class Map():
 		for i in range(0, laenge):
 			try:				#character of start field incremented by length + number of start field
 				if self.map_dict[chr(ord(sp)+i) + zl] != 0:# gives back true if any of the keys of the dict
-					return True								# on start field and lenght return 0
+					return False						# on start field and lenght return 0
 			except KeyError:
-				return True
-		return False
+				return False
+		return True
 
 	def schiffeSetzen(self, schiffTyp, start_feld, orient):
 		if self.inMap(start_feld, globale.schiff_Typen[schiffTyp], orient) == False:
 			return False # returns false if the inMap() says ship with length from dict on start field in that orient is not possible
 
+
 		if orient == "v":
-			if not self.besetzt_v(start_feld, globale.schiff_Typen[schiffTyp]):
+			if self.besetzt_v(start_feld, globale.schiff_Typen[schiffTyp]) == False:
 				sp = start_feld[0]
 				zl = int(start_feld[1])
 				for i in range(0, globale.schiff_Typen[schiffTyp]):
@@ -70,13 +71,12 @@ class Map():
 				return True#same func from before but loops through and assignes (from ship dict) not compares
 
 		elif orient == "h":
-			if not self.besetzt_h(start_feld, globale.schiff_Typen[schiffTyp]):
+			if self.besetzt_h(start_feld, globale.schiff_Typen[schiffTyp]) == False:
 				sp = start_feld[0]
 				zl = start_feld[1]
 				for i in range(0, globale.schiff_Typen[schiffTyp]):
 					self.map_dict[chr(ord(sp)+i) + zl] = globale.schiff_Codierung[schiffTyp]
 				return True#same as above but different orientation
-		
 		return False
 
 	def changeStellen(self, stelle, zeichen):
@@ -103,19 +103,21 @@ class enemyMap(Map):
 	pass
 
 ######test########
-
+"""
 s1 = Map()
 s1.mapDictInit()
 
-
 s1.printMap()
 
-s1.schiffeSetzen("Fregatte", "a3", "h")
+
 s1.schiffeSetzen("Destroyer", "g2", "v")
-s1.schiffeSetzen("Carrier", "b8", "h")
+s1.schiffeSetzen("Carrier", "a1", "h")
+s1.schiffeSetzen("Submarine", "z1", "v")
+
 print("\n")
 s1.printMap()
 
 s1.changeStellen("a1", "+")
 s1.appendStellen("j10", "-")
 s1.printMap()
+"""
