@@ -24,10 +24,10 @@ def gameLoop():
     p2.ownMap.printMap()
     
     while not done:
-        while p1.shoot():
-            p1.shoot()
-        while p2.shoot():
-            p2.shoot()
+        while p1.shoot(p2):
+            p1.shoot(p2)
+        while p2.shoot(p1):
+            p2.shoot(p1)
         
         if checkDone():
             done == True

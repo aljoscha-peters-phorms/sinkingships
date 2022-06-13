@@ -1,3 +1,4 @@
+from numpy import False_
 from Map import Map, clearScreen
 from time import sleep
 import globale
@@ -43,8 +44,8 @@ class Player():
     
     def shoot(self, player):
         self.enemyMap.printMap()
-        shootPos = input("Auf welches Feld willst du schießen: (Antwortformat(a1,b1,c1...h10,i10,j10):bsp: g5)")
-        if int(self.enemyMap.map_dict[shootPos]) > 0:
+        shootPos = input(f"Auf welches Feld willst du ({self})schießen: (Antwortformat(a1,b1,c1...h10,i10,j10):bsp: g5)")
+        if int(player.ownMap.map_dict[shootPos]) > 0:
             z = "+"
             print("Getroffen!")
         else:
@@ -53,12 +54,12 @@ class Player():
         
         self.enemyMap.changeStellen(shootPos, z)
         player.ownMap.appendStellen(shootPos, z)
+        
+        if z == "+":
+            return True
+        return False
 
-class Player1(Player):
-    pass
 
-class Player2(Player):
-    pass
 """
 p1 = Player()
 p1.setOwnMap()
