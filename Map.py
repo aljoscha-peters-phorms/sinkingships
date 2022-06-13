@@ -11,6 +11,9 @@ def clearScreen():
 	#clears terminal with terminal clear command for respective os's
 	os.system("cls") if os.name == "nt" else os.system("clear")
 
+global count
+count = []
+
 class Map():
 	
 	def __init__(self):
@@ -87,27 +90,36 @@ class Map():
 
 	def printMap(self):
 		#prints out map in 2d for loops
-		print("\tA B C D E F G H I J\n\n")
+		print("\n")
+
+		print("\tA  B  C  D  E  F  G  H  I  J\n\n")
 		
 		for i in range(1,11):
 			print(i, end = "\t")
 			for j in range(ord("a"), ord("j") + 1):
-				print(self.map_dict[chr(j)+str(i)], end = " ")
+				k = str(self.map_dict[chr(j)+str(i)])
+				if len(k) == 1:
+					print(k, end = "  ")
+				else:
+					print(k, end = " ")
 				if j == ord("j"):
 					print("\n")
-	def checkSunkShips(self, schiffTyp):
-		sunkList = []
-		
-		#loops through list, checks if sunk and of type of ship specified
+	
+	def checkSunkShip(self, schiffTyp):
+
+		#loops through list, checks if sunk and of type of ship specified#
+		#in dieser schrecklichen form für debugging, sorry, geht auch mit if and...
 		for i in range(1, 11):
 			for j in range(ord("a"), ord("j") + 1):
-				if self.map_dict[chr(j)+str(i)][0] == "+" and self.map_dict[chr(j)+str(i)][0] == globale.schiff_Codierung[schiffTyp]:
-					sunkList.append(self.map_dict[chr(j)+str(i)])
-		
-		#returns true if the list of ships 
-		if len(sunkList) == globale.schiff_Typen[schiffTyp]:
-			return True
-		return False
+				if len(str(self.map_dict[chr(j)+str(i)])) == 2:
+					if self.map_dict[chr(j)+str(i)][1] == "+":
+						if int(self.map_dict[chr(j)+str(i)][0]) == globale.schiff_Codierung[schiffTyp]:
+							count.append(int(self.map_dict[chr(j)+str(i)][0]))
+		#returns true if the list of ship parts is the same as the length of the ship, means that whole ship sunk
+		#else returns false
+		if len(count) == globale.schiff_Typen[schiffTyp]:
+			return True, schiffTyp
+		return False, schiffTyp
 
 #for categorising different maps, currently still difficult to access from player file/main file
 class ownMap(Map):
@@ -117,21 +129,21 @@ class enemyMap(Map):
 	pass
 
 ######test########
+
 """
 s1 = Map()
 s1.mapDictInit()
 
+s1.schiffeSetzen("Battleship", "a1", "h")
+
 s1.printMap()
 
+s1.appendStellen("a1", "+")
+s1.appendStellen("b1", "+")
+s1.appendStellen("c1", "+")
+s1.appendStellen("d1", "+")
 
-s1.schiffeSetzen("Destroyer", "g2", "v")
-s1.schiffeSetzen("Carrier", "a1", "h")
-s1.schiffeSetzen("Submarine", "z1", "v")
-
-print("\n")
 s1.printMap()
 
-s1.changeStellen("a1", "+")
-s1.appendStellen("j10", "-")
-s1.printMap()
+print(s1.checkSunkShip("Battleship"))
 """
