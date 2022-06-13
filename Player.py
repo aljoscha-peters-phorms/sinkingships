@@ -36,7 +36,7 @@ class Player():
             
                 if self.ownMap.schiffeSetzen(i, placementCoord, placementOrient):
                     print("Schiff richtig gesetzt")
-                    if i == "Fregatte": #######################for testing, has to "Carrier" !!!!!!!!!!!!!!!!
+                    if i == "Carrier":
                         done = True
                         break
                 else:
@@ -44,7 +44,9 @@ class Player():
                     sleep(3)
                     clearScreen()
                     self.setOwnMap()
-    
+                    done = False
+                    break
+
     def shoot(self, player):
         self.enemyMap.printMap()
         shootPos = input(f"Auf welches Feld willst du schießen: (Antwortformat(a1,b1,c1...h10,i10,j10):bsp: g5)")
@@ -80,6 +82,7 @@ class Player():
         return sunkShips
 
 
+"""
 p1 = Player()
 p1.setOwnMap()
 p1.setEnemyMap()
@@ -99,3 +102,4 @@ while True:
         p1.shoot(p2)
     while p2.shoot(p1):
         p2.shoot(p1)
+"""
