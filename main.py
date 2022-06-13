@@ -15,11 +15,9 @@ def gameLoop():
     player2.setOwnMap()
     player2.setEnemyMap()
 
-    print("Player 1: Place your ships!")
     player1.askCheckPlaceShips()
     player1.ownMap.printMap()
 
-    print("Player 2: Place your ships!")
     player2.askCheckPlaceShips()
     player2.ownMap.printMap()
     

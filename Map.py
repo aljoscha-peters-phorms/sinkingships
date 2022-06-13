@@ -95,6 +95,20 @@ class Map():
 				print(self.map_dict[chr(j)+str(i)], end = " ")
 				if j == ord("j"):
 					print("\n")
+	def checkSunkShips(self, schiffTyp):
+		sunkList = []
+		
+		#loops through list, checks if sunk and of type of ship specified
+		for i in range(1, 11):
+			for j in range(ord("a"), ord("j") + 1):
+				if self.map_dict[chr(j)+str(i)][0] == "+" and self.map_dict[chr(j)+str(i)][0] == globale.schiff_Codierung[schiffTyp]:
+					sunkList.append(self.map_dict[chr(j)+str(i)])
+		
+		#returns true if the list of ships 
+		if len(sunkList) == globale.schiff_Typen[schiffTyp]:
+			return True
+		return False
+
 #for categorising different maps, currently still difficult to access from player file/main file
 class ownMap(Map):
 	pass

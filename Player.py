@@ -4,7 +4,9 @@ from time import sleep
 import globale
 
 class Player():
-   
+    
+    amZug = True
+
     def __init__(self):
         self.name = ""
         self.ownMap = Map()
@@ -27,6 +29,8 @@ class Player():
 
         while not done:
             self.ownMap.printMap()
+            p = "Spieler 1" if amZug else "Spieler 2"
+            print(f"{p}, Setz deine Schiffe!")
             for i, j in globale.schiff_Typen.items():
                 placementCoord = input(f'Wo willst du {i} (Länge: {j}) setzen: (Antwortformat(a1,b1,c1...h10,i10,j10):bsp: a5)')
                 placementOrient = input(f'Wie willst du {i} (Länge: {j}) setzen: (Antwortformat (v: vertikal, h: horizontal): bsp. v)')
@@ -34,17 +38,17 @@ class Player():
                 if self.ownMap.schiffeSetzen(i, placementCoord, placementOrient):
                     print("Schiff richtig gesetzt")
                     if i == "Carrier":
+                        amZug = False
                         done = True
                 else:
                     print("Schiff falsch gesetzt")
                     sleep(3)
                     clearScreen()
                     self.setOwnMap()
-                    done = False
     
     def shoot(self, player):
         self.enemyMap.printMap()
-        shootPos = input(f"Auf welches Feld willst du ({self})schießen: (Antwortformat(a1,b1,c1...h10,i10,j10):bsp: g5)")
+        shootPos = input(f"Auf welches Feld willst du ({p}))schießen: (Antwortformat(a1,b1,c1...h10,i10,j10):bsp: g5)")
         if int(player.ownMap.map_dict[shootPos]) > 0:
             z = "+"
             print("Getroffen!")
@@ -54,6 +58,7 @@ class Player():
         
         self.enemyMap.changeStellen(shootPos, z)
         player.ownMap.appendStellen(shootPos, z)
+        p = True if p == False else True
         
         if z == "+":
             return True
@@ -61,6 +66,7 @@ class Player():
     
     def checkSunkShips(self):
         pass
+
 
 """
 p1 = Player()
