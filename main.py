@@ -5,7 +5,7 @@ def gameLoop():
     global done
     done = False
 
-    menu.main()
+    menu.menu()
     
     p1 = Player.Player()
     p1.setOwnMap()

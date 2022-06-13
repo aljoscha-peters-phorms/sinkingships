@@ -1,9 +1,11 @@
 #menu.py
-def main():
-	print("welcome to sinking ships")
+import Intro
 
-
-	input1 = input("type OK if you want to start playing" + "\n" )
+def menu():
+	Intro.asciiIntro()
+	
+	print("welcome to Sinking Ships")
+	input1 = input("Type OK if you want to start playing\n" )
 
 
 
