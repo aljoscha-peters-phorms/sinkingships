@@ -58,7 +58,9 @@ class Player():
         if z == "+":
             return True
         return False
-
+    
+    def checkSunkShips(self):
+        pass
 
 """
 p1 = Player()
