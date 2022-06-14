@@ -1,4 +1,3 @@
-from numpy import False_
 from Map import Map, clearScreen
 from time import sleep
 import globale

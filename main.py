@@ -27,7 +27,7 @@ def gameLoop():
     global loser
     loser = ""
 
-    #menu.menu()
+    menu.menu()
     
     player1 = Player.Player()
     player1.setOwnMap()
