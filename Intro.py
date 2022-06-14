@@ -2,7 +2,6 @@ import os
 import curses
 from curses import wrapper
 from time import sleep
-from playsound import playsound
 
 def clearScreen():
 	os.system("cls") if os.name == 'nt' else os.system("clear")
@@ -54,7 +53,7 @@ def asciiIntro():
 	Header4="         \__ \ | | | |   <| | | | | (_| | \__ \ | | | | |_) \__ \               "
 	Header5="         |___/_|_| |_|_|\_\_|_| |_|\__, | |___/_| |_|_| .__/|___/               "
 	Header6="                                   |___/              |_|                       " 
-	playsound('warship-sound.mp3')
+	#playsound('warship-sound.mp3')
 	while n > 0:
 		clearScreen()	
 		print("\033[1;30;47m " + myString1[n:])
@@ -103,6 +102,6 @@ def asciiIntro():
 		print("\033[1;37;44m " + Header6[m:]+"\033[0;0m")
 		sleep(0.1)
 		m = m - 1
-	playsound('warship-sound.mp3')
+	#playsound('warship-sound.mp3')
 
 asciiIntro()
