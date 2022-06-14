@@ -2,11 +2,7 @@ import os
 import curses
 from curses import wrapper
 from time import sleep
-
-
-
-
-
+from playsound import playsound
 
 def clearScreen():
 	os.system("cls") if os.name == 'nt' else os.system("clear")
